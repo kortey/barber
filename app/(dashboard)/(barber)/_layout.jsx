@@ -1,10 +1,8 @@
-
 import { Tabs } from 'expo-router';
 import React from 'react';
 import { Platform } from 'react-native';
 
 import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
 import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
@@ -31,34 +29,26 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: 'Dashboard',
+          tabBarIcon: ({ color }) => <Ionicons size={28} name="home" color={color} />,
         }}
       />
-      <Tabs.Screen
-        name="gallery"
-        options={{
-          title: 'Gallery',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="photo.fill" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="bookingpage"
-        options={{
-          title: 'Book',
-          tabBarIcon: ({ color }) => ( <Ionicons name="calendar-outline" size={24} color={color} />) 
-        }}
-      />
-      <Tabs.Screen
-            name="profile"
-            options={{
-              title: 'Profile',
-              tabBarIcon: ({ color }) => (
-                <Ionicons name="person-outline" size={24} color={color} />
-              ),
-            }}
-/>
 
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: 'profile',
+          tabBarIcon: ({ color }) => <Ionicons size={28} name="home" color={color} />,
+        }}
+      />
+      
+      {/* Hide the appointment screen from tab bar */}
+      <Tabs.Screen
+        name="appointment/[id]"
+        options={{
+          href: null, // This prevents the tab from showing in the tab bar
+        }}
+      />
     </Tabs>
   );
 }
