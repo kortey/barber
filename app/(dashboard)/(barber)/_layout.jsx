@@ -38,7 +38,15 @@ export default function TabLayout() {
         name="profile"
         options={{
           title: 'profile',
-          tabBarIcon: ({ color }) => <Ionicons size={28} name="home" color={color} />,
+          tabBarIcon: ({ color }) => <Ionicons size={28} name="person" color={color} />,
+        }}
+      />
+
+<Tabs.Screen
+        name="availability"
+        options={{
+          title: 'availability',
+          tabBarIcon: ({ color }) => <Ionicons size={28} name="callendar" color={color} />,
         }}
       />
       
